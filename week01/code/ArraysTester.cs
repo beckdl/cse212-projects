@@ -1,3 +1,5 @@
+using System.Globalization;
+
 public static class ArraysTester {
     /// <summary>
     /// Entry point for the tests
@@ -39,7 +41,26 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+        // Create a total variable so the "for" loop knows when to stop.
+        double total = number * length;
+        // Create a new list called numbers.
+        var numbers = new List<double>();
+
+        //Create a for loop with a double variable "i" equal to the variable "number", going as long as the absolute value of "i" is less than or equal to the absolute value of the variable "total" and increasing the variable "i" by the "number" variable.
+        for (double i = number; Math.Abs(i) <= Math.Abs(total); i += number)
+        {
+            // Create an if statement where if the "i" variable is divided by "number" and has a remainder of zero it will add the variable "i" to the "numbers" list.
+            if ((i % number) == 0)
+            {
+                numbers.Add(i);
+            }
+        }
+
+        // Transform the list to an array
+        var multiples = numbers.ToArray();
+
+        // Return the new multiples array.
+        return multiples; // replace this return statement with your own
     }
     
     /// <summary>
@@ -57,5 +78,17 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        // Create a splice variable to figure out the needed amount taken from the list.
+        int splice = 9 - amount;
+
+        // Use "data.RemoveRange with zero and the variable "splice" to remove the needed amount.
+        data.RemoveRange(0,splice);
+
+        // Create a for loop with "i" equal to 1, going as long as "i" is less than the variable "splice" and "i" going up one with each iteration.
+        for (int i = 1; i <= splice; i++)
+        {
+            // With each iteration of the for loop add the variable "i" to the list "data".
+            data.Add(i);
+        }
     }
 }
