@@ -27,7 +27,7 @@ public static class TakingTurns {
             players.GetNextPerson();
         // Defect(s) Found: 
 
-        Console.WriteLine("---------");
+        Console.WriteLine("They are not taking turns in the queue like they're supposed to");
 
         // Test 2
         // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3)
@@ -50,7 +50,7 @@ public static class TakingTurns {
 
         // Defect(s) Found: 
 
-        Console.WriteLine("---------");
+        Console.WriteLine("Adding a new person does not put them at the end of the line.");
 
         // Test 3
         // Scenario: Create a queue with the following people and turns: Bob (2), Tim (Forever), Sue (3)
@@ -68,7 +68,7 @@ public static class TakingTurns {
         }
         // Defect(s) Found: 
 
-        Console.WriteLine("---------");
+        Console.WriteLine("Forever doesn't last forever.");
 
         // Test 4
         // Scenario: Try to get the next person from an empty queue
@@ -77,5 +77,7 @@ public static class TakingTurns {
         players = new TakingTurnsQueue();
         players.GetNextPerson();
         // Defect(s) Found:
+        Console.WriteLine("No error message pops up when the queue is empty.");
+
     }
 }
