@@ -116,13 +116,63 @@ public class LinkedList : IEnumerable<int> {
     /// </summary>
     public void Remove(int value) {
         // TODO Problem 3
-    }
+        Node? curr = _head;
+        while (curr is not null) {
+            if (curr.Data == value) {
+                // If the location of 'value' is at the end of the list,
+                // then we can call insert_tail to add 'new_value'
+                if (curr == _tail) {
+                    RemoveTail();
+                }
+                else if (curr == _head) {
+                    RemoveHead();
+                }
+                else {
+                    curr.Next!.Prev = curr.Prev;
+                    curr.Prev!.Next = curr.Next;
+                }
 
+                return; // We can exit the function after we insert
+            }
+
+            curr = curr.Next; // Go to the next node to search for 'value'
+        }
+    }
     /// <summary>
     /// Search for all instances of 'oldValue' and replace the value to 'newValue'.
     /// </summary>
     public void Replace(int oldValue, int newValue) {
         // TODO Problem 4
+        Node? curr = _head;
+        while (curr is not null) {
+            if (curr.Data == oldValue) {
+                // If the location of 'value' is at the end of the list,
+                // then we can call insert_tail to add 'new_value'
+                if (curr == _tail) {
+                    RemoveTail();
+                    InsertTail(newValue);
+                }
+                else if (curr == _head) {
+                    RemoveHead();
+                    InsertHead(newValue);
+                }
+                else {
+                    curr.Data = newValue; //Next!.Prev = curr.Prev;
+                    //curr.Prev!.Next = curr.Next;
+
+                    //Node newNode = new(newValue);
+                    //newNode.Prev = curr; // Connect new node to the node containing 'value'
+                    //newNode.Next = curr.Next; // Connect new node to the node after 'value'
+                    //curr.Next!.Prev = newNode; // Connect node after 'value' to the new node
+                    //curr.Next = newNode; // Connect the node containing 'value' to the new node
+                
+                }
+
+                
+            }
+
+            curr = curr.Next; // Go to the next node to search for 'value'
+        }
     }
 
     /// <summary>
