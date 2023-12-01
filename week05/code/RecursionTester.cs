@@ -175,6 +175,15 @@ public static class RecursionTester {
     /// </summary>
     public static void PermutationsChoose(string letters, int size, string word = "") {
         // TODO Start Problem 2
+        if (letters.Length == size){
+            Console.WriteLine(word);
+        }
+        else {
+            for (var i = 0; i < letters.Length; i++){
+                var letterLeft = letters.Remove(i, 1);
+                PermutationsChoose(letterLeft, letters.Length - size, word + letters[i]);
+            }
+        }
     }
 
     /// <summary>
