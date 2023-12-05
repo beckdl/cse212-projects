@@ -269,6 +269,21 @@ public static class RecursionTester {
     /// </summary>
     public static void WildcardBinary(string pattern) {
         // TODO Start Problem 4
+        
+        if (pattern.IndexOf("*", 0, pattern.Length) == -1) {
+            Console.WriteLine(pattern);
+        }
+        //else {
+        //    var change = pattern.IndexOf("*");
+        //    pattern = pattern.Replace("*", "0");
+        //    WildcardBinary(pattern);
+        //}
+        else {
+            for (var i = 0; i < pattern.Length; i++){
+                var letterLeft = pattern.Replace("*", "1");
+                WildcardBinary(letterLeft);
+            }
+        }
     }
 
     /// <summary>
